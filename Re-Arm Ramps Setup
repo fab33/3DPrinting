@@ -1,0 +1,37 @@
+Re-Arm Ramps Setup 
+-----------------------------------
+
+First you want to setup Atom + PlatformIO
+
+Get Atom @ https://atom.io/
+
+In Atom , go to Settings and go to Install at the bottom of the menu
+search for platformio and install platformio-ide
+
+( for more info on setup http://docs.platformio.org/en/latest/ide/atom.html#installation )
+
+
+Now let's get Marlin 2.0 ( https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.0.x ) 
+
+
+1) Extract the Marlin-bugfix-2.0.x.zip to C:\Marlin
+
+2) Open C:\Marlin\platformio.ini , find "env_default" and set that to  LPC1768  , save & close
+
+3) Open C:\Marlin\Marlin\Configuration.h 
+
+	Find "#define MOTHERBOARD" and set it to BOARD_RAMPS_14_RE_ARM_EFB
+        (complete line : #define MOTHERBOARD BOARD_RAMPS_14_RE_ARM_EFB) 
+
+	Complete your other Marlin setup , steps etc .. Then save & close 
+
+4) Open Atom, and in the PlatformIO panel, press "Open project" and select C:\Marlin as your directory
+
+5) In the lower left corner of Atom you will see "PIO Build", press that and type in 1768, then select "Build PIO (1768)"
+
+	Now you wait a sec while it compiles 
+
+6) Now go to C:\marlin\.pioenvs\LPC1768 and copy your Firmware.bin to an SD Card
+
+7) Insert into Re-Arm and boot 
+	
